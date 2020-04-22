@@ -18,20 +18,24 @@ namespace WindowsFormsAPP
             OffRB.Checked = true;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void AcceptBtn(object sender, EventArgs e)
         {
             if (OffRB.Checked)
-                CMDClass.offMethod();
+            {
+                ServicesClass.offMethod();
+            }
             else
-                CMDClass.onMethod();
+            {
+                ServicesClass.onMethod();
+            }
         }
 
-        private void Form1_MouseDown(object sender, MouseEventArgs e)
+        private void MainForm_MouseDown(object sender, MouseEventArgs e)
         {
             base.Capture = false;
             Message m = Message.Create(base.Handle, 0xa1, new IntPtr(2), IntPtr.Zero);
@@ -45,7 +49,7 @@ namespace WindowsFormsAPP
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("При включеном UAC, необходимо подтверждение пользователя на запуск от \"Администратора.\"", "Info", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("При включеном UAC, необходимо подтверждение пользователя на запуск от \"Администратора.\"", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
