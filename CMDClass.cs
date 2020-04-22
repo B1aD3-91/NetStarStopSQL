@@ -43,13 +43,13 @@ namespace WindowsFormsAPP
                 //UseShellExecute = false,
                 Verb = "runas",
                 Arguments = @"/c net start MSSQL$SQLEXPRESS
-                              &
+                              &&
                                 net start MSSQLFDLauncher$SQLEXPRESS
-                              &
+                              &&
                                 net start SQLTELEMETRY$SQLEXPRESS
-                              &
+                              &&
                                 net start SQLWriter
-                              &
+                              &&
                                 net start MSSQLLaunchpad$SQLEXPRESS"
             });
         }
