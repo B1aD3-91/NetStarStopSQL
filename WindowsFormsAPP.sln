@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetSartStopSQL", "NetSartStopSQL.csproj", "{C628ECA4-A0F9-4842-808D-F0DDEBDB2646}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C628ECA4-A0F9-4842-808D-F0DDEBDB2646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C628ECA4-A0F9-4842-808D-F0DDEBDB2646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C628ECA4-A0F9-4842-808D-F0DDEBDB2646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C628ECA4-A0F9-4842-808D-F0DDEBDB2646}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B3F9E61-9CEA-4420-A437-9D2B078DFB7E}
+	EndGlobalSection
+EndGlobal
