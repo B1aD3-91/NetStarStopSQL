@@ -15,7 +15,7 @@ namespace WindowsFormsAPP
         /// Возвращает коллекцию SQL служб.
         /// </summary>
         /// <returns></returns>
-        internal IEnumerable<ServiceController> GetSQLServices()
+        internal static IEnumerable<ServiceController> GetSQLServices()
         {
             ServiceController[] Services = ServiceController.GetServices();
             return Services.Where(x => x.ServiceName.Contains("SQL"));

@@ -186,7 +186,6 @@
             // TimerSender
             // 
             this.TimerSender.Interval = 1000;
-            this.TimerSender.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // MainForm
             // 
