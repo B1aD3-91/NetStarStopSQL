@@ -5,23 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ServiceProcess;
-
+//todo добавить ожидание завершение методов
 
 namespace WindowsFormsAPP
 {
     class ServicesClass
-    { 
-        internal static string errorMessage = null;
-        //internal static ServiceController ServiceMNG = new ServiceController();
-        ///<summary>
-        ///Метод отключает службы SQL.
-        ///</summary>
-        internal static void offMethod()
+    {
+        /// <summary>
+        /// Возвращает коллекцию SQL служб.
+        /// </summary>
+        /// <returns></returns>
+        internal IEnumerable<ServiceController> GetSQLServices()
         {
             ServiceController[] Services = ServiceController.GetServices();
-            var list = Services.Where(x => x.ServiceName.Contains("SQL"));
-
-            foreach (var item in list)
+            return Services.Where(x => x.ServiceName.Contains("SQL"));
+        }
+        ///<summary>
+        ///Метод получает коллекцию служб и отключает их.
+        ///</summary>
+        internal void StopServicesMethod(IEnumerable<ServiceController> CollectionServices)
+        {
+            foreach (var item in GetSQLServices())
             {
                 if (item.CanStop && item.Status == ServiceControllerStatus.Running)
                 {
@@ -37,18 +41,23 @@ namespace WindowsFormsAPP
             }
         }
         /// <summary>
-        /// Метод включает процессы SQL.
+        /// Метод получает коллекцию служб и включает их
         /// </summary>
-        internal static void onMethod()
+        internal void StartServicesMethod(IEnumerable<ServiceController> CollectionServices)
         {
-            ServiceController[] Services = ServiceController.GetServices();
-            var list = Services.Where(x => x.ServiceName.Contains("SQL"));
-
-            foreach (var item in list)
+            foreach (var item in GetSQLServices())
             {
                 if (item.StartType != ServiceStartMode.Disabled && item.Status != ServiceControllerStatus.Running)
                 {
-                    item.Start();
+                    try
+                    {
+                        item.Start();
+                    }
+                    catch
+                    {
+
+                    }
+
                 }
             }
         }
