@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ServiceProcess;
-//todo добавить ожидание завершение методов
 
 namespace WindowsFormsAPP
 {
@@ -14,8 +9,8 @@ namespace WindowsFormsAPP
         /// <summary>
         /// Возвращает коллекцию SQL служб.
         /// </summary>
-        /// <returns></returns>
-        internal static IEnumerable<ServiceController> GetSQLServices()
+        /// <returns>(Collection)ServiceController</returns>
+        internal static IEnumerable<ServiceController> GetSQLServices() // Get SQL Services
         {
             ServiceController[] Services = ServiceController.GetServices();
             return Services.Where(x => x.ServiceName.Contains("SQL"));
@@ -23,7 +18,7 @@ namespace WindowsFormsAPP
         ///<summary>
         ///Метод получает коллекцию служб и отключает их.
         ///</summary>
-        internal void StopServicesMethod(IEnumerable<ServiceController> CollectionServices)
+        internal void StopServicesMethod(IEnumerable<ServiceController> CollectionServices) //Get Services and stops them
         {
             foreach (var item in GetSQLServices())
             {
@@ -43,7 +38,7 @@ namespace WindowsFormsAPP
         /// <summary>
         /// Метод получает коллекцию служб и включает их
         /// </summary>
-        internal void StartServicesMethod(IEnumerable<ServiceController> CollectionServices)
+        internal void StartServicesMethod(IEnumerable<ServiceController> CollectionServices) //Get Services and starts them
         {
             foreach (var item in GetSQLServices())
             {

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.AcceptButton = new System.Windows.Forms.Button();
             this.GroupBoxOnOff = new System.Windows.Forms.GroupBox();
@@ -40,7 +39,6 @@
             this.ServiceNameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimerSender = new System.Windows.Forms.Timer(this.components);
             this.CloseBox = new System.Windows.Forms.PictureBox();
             this.GroupBoxOnOff.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -127,20 +125,26 @@
             // 
             this.DataGridServices.AllowUserToAddRows = false;
             this.DataGridServices.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.WindowFrame;
-            this.DataGridServices.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridServices.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
             this.DataGridServices.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridServices.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ServiceNameColumn,
             this.StatusColumn,
             this.StartTypeColumn});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridServices.DefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridServices.GridColor = System.Drawing.SystemColors.WindowFrame;
             this.DataGridServices.Location = new System.Drawing.Point(153, 27);
             this.DataGridServices.Name = "DataGridServices";
             this.DataGridServices.ReadOnly = true;
             this.DataGridServices.RowHeadersVisible = false;
+            this.DataGridServices.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DataGridServices.Size = new System.Drawing.Size(543, 191);
             this.DataGridServices.TabIndex = 4;
             // 
@@ -168,10 +172,6 @@
             this.StartTypeColumn.MaxInputLength = 100;
             this.StartTypeColumn.Name = "StartTypeColumn";
             this.StartTypeColumn.ReadOnly = true;
-            // 
-            // TimerSender
-            // 
-            this.TimerSender.Interval = 1000;
             // 
             // CloseBox
             // 
@@ -231,7 +231,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ServiceNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartTypeColumn;
-        private System.Windows.Forms.Timer TimerSender;
     }
 }
 
