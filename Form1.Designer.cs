@@ -34,7 +34,6 @@
             this.GroupBoxOnOff = new System.Windows.Forms.GroupBox();
             this.OnRB = new System.Windows.Forms.RadioButton();
             this.OffRB = new System.Windows.Forms.RadioButton();
-            this.CloseBox = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DataGridServices = new System.Windows.Forms.DataGridView();
@@ -42,10 +41,11 @@
             this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TimerSender = new System.Windows.Forms.Timer(this.components);
+            this.CloseBox = new System.Windows.Forms.PictureBox();
             this.GroupBoxOnOff.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridServices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).BeginInit();
             this.SuspendLayout();
             // 
             // AcceptButton
@@ -98,20 +98,6 @@
             this.OffRB.TabStop = true;
             this.OffRB.Text = "Off SQL Services";
             this.OffRB.UseVisualStyleBackColor = true;
-            // 
-            // CloseBox
-            // 
-            this.CloseBox.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.CloseBox.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.CloseBox.Image = global::WindowsFormsAPP.Properties.Resources.closeapp;
-            this.CloseBox.InitialImage = null;
-            this.CloseBox.Location = new System.Drawing.Point(373, 7);
-            this.CloseBox.Name = "CloseBox";
-            this.CloseBox.Size = new System.Drawing.Size(16, 16);
-            this.CloseBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.CloseBox.TabIndex = 2;
-            this.CloseBox.TabStop = false;
-            this.CloseBox.Click += new System.EventHandler(this.CloseBox_Click);
             // 
             // menuStrip1
             // 
@@ -187,6 +173,20 @@
             // 
             this.TimerSender.Interval = 1000;
             // 
+            // CloseBox
+            // 
+            this.CloseBox.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.CloseBox.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.CloseBox.Image = global::WindowsFormsAPP.Properties.Resources.closeapp;
+            this.CloseBox.InitialImage = null;
+            this.CloseBox.Location = new System.Drawing.Point(679, 7);
+            this.CloseBox.Name = "CloseBox";
+            this.CloseBox.Size = new System.Drawing.Size(16, 16);
+            this.CloseBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CloseBox.TabIndex = 2;
+            this.CloseBox.TabStop = false;
+            this.CloseBox.Click += new System.EventHandler(this.CloseBox_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -204,17 +204,16 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "StartSopperSQL";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
             this.GroupBoxOnOff.ResumeLayout(false);
             this.GroupBoxOnOff.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridServices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).EndInit();
             this.ResumeLayout(false);
 
         }
