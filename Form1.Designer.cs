@@ -40,6 +40,7 @@
             this.StatusColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartTypeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CloseBox = new System.Windows.Forms.PictureBox();
+            this.ErrorLabel = new System.Windows.Forms.Label();
             this.GroupBoxOnOff.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridServices)).BeginInit();
@@ -187,12 +188,21 @@
             this.CloseBox.TabStop = false;
             this.CloseBox.Click += new System.EventHandler(this.CloseBox_Click);
             // 
+            // ErrorLabel
+            // 
+            this.ErrorLabel.AutoSize = true;
+            this.ErrorLabel.Location = new System.Drawing.Point(12, 159);
+            this.ErrorLabel.Name = "ErrorLabel";
+            this.ErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.ErrorLabel.TabIndex = 5;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(711, 230);
+            this.Controls.Add(this.ErrorLabel);
             this.Controls.Add(this.DataGridServices);
             this.Controls.Add(this.CloseBox);
             this.Controls.Add(this.GroupBoxOnOff);
@@ -215,6 +225,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DataGridServices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -231,6 +242,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ServiceNameColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StatusColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartTypeColumn;
+        private System.Windows.Forms.Label ErrorLabel;
     }
 }
 

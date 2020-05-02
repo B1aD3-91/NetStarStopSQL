@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.ServiceProcess;
 
@@ -10,17 +11,18 @@ namespace WindowsFormsAPP
         /// Возвращает коллекцию SQL служб.
         /// </summary>
         /// <returns>(Collection)ServiceController</returns>
-        internal static IEnumerable<ServiceController> GetSQLServices() // Get SQL Services
+        internal static IEnumerable<ServiceController> GetSQLServices(string s) // Get SQL Services
         {
             ServiceController[] Services = ServiceController.GetServices();
-            return Services.Where(x => x.ServiceName.Contains("SQL"));
+            return Services.Where(x => x.ServiceName.Contains(s));
         }
         ///<summary>
         ///Метод получает коллекцию служб и отключает их.
         ///</summary>
-        internal void StopServicesMethod(IEnumerable<ServiceController> CollectionServices) //Get Services and stops them
+        internal string StopServicesMethod(IEnumerable<ServiceController> CollectionServices) //Get Services and stops them
         {
-            foreach (var item in GetSQLServices())
+            string ErrorMessage = null;
+            foreach (var item in CollectionServices)
             {
                 if (item.CanStop && item.Status == ServiceControllerStatus.Running)
                 {
@@ -28,19 +30,21 @@ namespace WindowsFormsAPP
                     {
                         item.Stop();
                     }
-                    catch
+                    catch(Exception ex)
                     {
-
+                        ErrorMessage = ex.Message;
                     }
                 }
             }
+            return ErrorMessage;
         }
         /// <summary>
         /// Метод получает коллекцию служб и включает их
         /// </summary>
-        internal void StartServicesMethod(IEnumerable<ServiceController> CollectionServices) //Get Services and starts them
+        internal string StartServicesMethod(IEnumerable<ServiceController> CollectionServices) //Get Services and starts them
         {
-            foreach (var item in GetSQLServices())
+            string ErrorMessage = null;
+            foreach (var item in CollectionServices)
             {
                 if (item.StartType != ServiceStartMode.Disabled && item.Status != ServiceControllerStatus.Running)
                 {
@@ -48,13 +52,13 @@ namespace WindowsFormsAPP
                     {
                         item.Start();
                     }
-                    catch
+                    catch(Exception ex)
                     {
-
+                        ErrorMessage = ex.Message;
                     }
-
                 }
             }
+            return ErrorMessage;
         }
     }
 }

@@ -17,7 +17,7 @@ namespace WindowsFormsAPP
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Task.Run(() => { DataGridBackgroundRefres(); }); // Run BackgroundThread DataGridRefresher
+            Task.Run(() => { DataGridBackgroundRefresh(); }); // Run BackgroundThread DataGridRefresher
         }
 
         private async void AcceptBtn(object sender, EventArgs e) // Radio Button Checked
@@ -26,12 +26,12 @@ namespace WindowsFormsAPP
 
             if (OffRB.Checked)
             {
-                await Task.Run(() => { Services.StopServicesMethod(ServicesClass.GetSQLServices()); }); //todo need Singleton
+                await Task.Run(() => { Services.StopServicesMethod(ServicesClass.GetSQLServices("SQL")); }); //todo need Singleton
                 AcceptButton.Enabled = true;
             }
             else
             {
-                await Task.Run(() => { Services.StartServicesMethod(ServicesClass.GetSQLServices()); }); //todo need Singleton
+                await Task.Run(() => { Services.StartServicesMethod(ServicesClass.GetSQLServices("SQL")); }); //todo need Singleton
                 AcceptButton.Enabled = true;
             }
         }
@@ -52,13 +52,13 @@ namespace WindowsFormsAPP
         {
             MessageBox.Show("При включеном UAC, необходимо подтверждение пользователя на запуск от \"Администратора.\"", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        internal void DataGridBackgroundRefres()
+        internal void DataGridBackgroundRefresh()
         {
             while (true)
             {
                 int position = DataGridServices.FirstDisplayedCell?.RowIndex ?? 0; //Save position scroll\row position
 
-                var s = ServicesClass.GetSQLServices();
+                var s = ServicesClass.GetSQLServices("SQL");
                 DataGridServices.Invoke(new Action(() =>
                 {
                     DataGridServices.Rows.Clear();
